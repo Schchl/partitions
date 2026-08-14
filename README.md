@@ -25,7 +25,8 @@ horn-library/
 {
   title: "Titre du morceau",
   composer: "Nom du compositeur",
-  category: "Solo / concerto",   // ou "Musique de chambre", "Extraits d'orchestre", "Études", "Fanfare"…
+  group: "Orchestre",            // "Orchestre", "Loisirs" ou "Anciens" — voir ci-dessous
+  category: "Solo / concerto",   // libre : "Musique de chambre", "Extraits d'orchestre", "Études", "Fanfare"…
   key: "Mi bémol majeur",        // facultatif
   opus: "op. 11",                // facultatif
   pdf: "scores/mon-fichier.pdf",
@@ -35,7 +36,13 @@ horn-library/
 
 3. Enregistre. C'est tout — pas de build, pas de compilation.
 
-Les catégories affichées dans les filtres (les petites "valves" en haut) sont générées automatiquement à partir de ce que tu utilises dans `category`, donc tu peux en inventer de nouvelles librement.
+### Les deux niveaux de classement
+
+- **`group`** pilote les filtres principaux en haut de page (les "valves"), toujours affichés dans cet ordre fixe : **Orchestre → Loisirs → Anciens**. N'utilise que l'une de ces trois valeurs, exactement orthographiées ainsi :
+  - `"Orchestre"` — morceaux liés à l'orchestre (répertoire orchestral, auditions, concertos joués avec orchestre…)
+  - `"Loisirs"` — morceaux joués pour le plaisir, en dehors du cadre orchestre
+  - `"Anciens"` — anciens morceaux que tu ne joues plus actuellement
+- **`category`** est une sous-étiquette libre, affichée sur chaque carte à côté du groupe (par ex. "Musique de chambre", "Fanfare"…). Tu peux en inventer autant que tu veux, elle ne sert qu'à l'affichage, pas au filtre.
 
 ## Tester en local
 

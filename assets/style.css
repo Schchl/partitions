@@ -83,14 +83,21 @@ h1 span{
   height: 220px;
   flex-shrink: 0;
 }
-.horn-coil, .horn-lead, .horn-bell{
+.horn-coil circle, .horn-lead{
   fill: none;
   stroke: var(--gold);
-  stroke-width: 5;
+  stroke-width: 6;
   stroke-linecap: round;
 }
-.horn-bell{ fill: rgba(201,162,39,0.08); }
-.valve{ fill: var(--gold-bright); }
+.horn-coil-inner{ stroke-opacity: 0.55; }
+.horn-mouthpiece{ fill: var(--gold-bright); }
+.horn-bell{
+  fill: rgba(201,162,39,0.12);
+  stroke: var(--gold);
+  stroke-width: 6;
+  stroke-linejoin: round;
+}
+.valve rect{ fill: var(--gold-bright); }
 
 /* ---------- Controls ---------- */
 .controls{
@@ -196,6 +203,12 @@ h1 span{
   justify-content: space-between;
   align-items: center;
 }
+.card-top-tags{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
 .tag{
   font-family: "JetBrains Mono", monospace;
   font-size: 10.5px;
@@ -206,6 +219,11 @@ h1 span{
   border: 1px solid var(--line);
   padding: 3px 9px;
   border-radius: 999px;
+}
+.tag-group{
+  color: var(--ivory);
+  background: rgba(169,103,60,0.18);
+  border-color: rgba(169,103,60,0.35);
 }
 .key{
   font-family: "JetBrains Mono", monospace;

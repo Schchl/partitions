@@ -7,24 +7,28 @@
   const emptyState = document.getElementById("empty-state");
 
   const data = Array.isArray(window.SCORES) ? window.SCORES : [];
-  const categories = [...new Set(data.map((s) => s.category))].sort();
-  const activeCategories = new Set();
+
+  // Ordre fixe des groupes affichés dans les filtres (les "valves").
+  // On garde toujours cet ordre, même si un groupe n'a encore aucune partition.
+  const GROUP_ORDER = ["Orchestre", "Loisirs", "Anciens"];
+
+  const activeGroups = new Set();
   let query = "";
 
   function buildFilters() {
-    categories.forEach((cat) => {
+    GROUP_ORDER.forEach((group) => {
       const btn = document.createElement("button");
       btn.className = "valve-btn";
       btn.type = "button";
-      btn.textContent = cat;
+      btn.textContent = group;
       btn.setAttribute("aria-pressed", "false");
       btn.addEventListener("click", () => {
-        if (activeCategories.has(cat)) {
-          activeCategories.delete(cat);
+        if (activeGroups.has(group)) {
+          activeGroups.delete(group);
           btn.classList.remove("active");
           btn.setAttribute("aria-pressed", "false");
         } else {
-          activeCategories.add(cat);
+          activeGroups.add(group);
           btn.classList.add("active");
           btn.setAttribute("aria-pressed", "true");
         }
@@ -40,9 +44,9 @@
       !q ||
       score.title.toLowerCase().includes(q) ||
       score.composer.toLowerCase().includes(q);
-    const inCategory =
-      activeCategories.size === 0 || activeCategories.has(score.category);
-    return inQuery && inCategory;
+    const inGroup =
+      activeGroups.size === 0 || activeGroups.has(score.group);
+    return inQuery && inGroup;
   }
 
   function render() {
@@ -53,6 +57,7 @@
       const node = template.content.cloneNode(true);
       const card = node.querySelector(".card");
 
+      node.querySelector('[data-field="group"]').textContent = score.group || "";
       node.querySelector('[data-field="category"]').textContent = score.category;
       node.querySelector('[data-field="key"]').textContent = score.key || "";
       node.querySelector('[data-field="title"]').textContent = score.title;
