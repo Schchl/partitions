@@ -55,7 +55,8 @@
     const results = data.filter(matches).sort((a, b) => {
       const orderA = GROUP_ORDER.indexOf(a.group);
       const orderB = GROUP_ORDER.indexOf(b.group);
-      return orderA - orderB;
+      if (orderA !== orderB) return orderA - orderB;
+      return a.title.localeCompare(b.title, "fr", { sensitivity: "base" });
     });
     rack.innerHTML = "";
 
