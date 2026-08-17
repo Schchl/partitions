@@ -124,6 +124,22 @@ const SCORES = [
     category: "Extraits d'orchestre",
     pdf: "scores/we-wish-you-a-merry-christmas-PetitPapaNoël-OSEM 2025-F_Horn.pdf",
     mp3: "audio/we-wish-you-a-merry-christmas-PetitPapaNoël-OSEM-2025.mp3"
+  },
+  {
+    title: "Serenade for horn and band",
+    composer: "?",
+    group: "Anciens",
+    category: "Cours cor",
+    pdf: "scores/serenade-for-horn-and-band.pdf",
+    mp3: null
+  },
+  {
+    title: "From the start",
+    composer: "?",
+    group: "Loisirs",
+    category: "Loisir",
+    pdf: "scores/from-the-start.pdf",
+    mp3: null
   }
 ];
 
