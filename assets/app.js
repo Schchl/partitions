@@ -12,7 +12,7 @@
   // On garde toujours cet ordre, même si un groupe n'a encore aucune partition.
   const GROUP_ORDER = ["Orchestre", "Loisirs", "Anciens"];
 
-  const activeGroups = new Set();
+  let activeGroup = null; // sélection unique : un seul groupe actif à la fois (ou null = tous)
   let query = "";
 
   function buildFilters() {
@@ -23,15 +23,18 @@
       btn.textContent = group;
       btn.setAttribute("aria-pressed", "false");
       btn.addEventListener("click", () => {
-        if (activeGroups.has(group)) {
-          activeGroups.delete(group);
-          btn.classList.remove("active");
-          btn.setAttribute("aria-pressed", "false");
+        if (activeGroup === group) {
+          // reclic sur le même bouton -> on désélectionne, on affiche tout
+          activeGroup = null;
         } else {
-          activeGroups.add(group);
-          btn.classList.add("active");
-          btn.setAttribute("aria-pressed", "true");
+          activeGroup = group;
         }
+        // met à jour l'état visuel de tous les boutons
+        filtersEl.querySelectorAll(".valve-btn").forEach((b) => {
+          const isActive = b.textContent === activeGroup;
+          b.classList.toggle("active", isActive);
+          b.setAttribute("aria-pressed", isActive ? "true" : "false");
+        });
         render();
       });
       filtersEl.appendChild(btn);
@@ -44,8 +47,7 @@
       !q ||
       score.title.toLowerCase().includes(q) ||
       score.composer.toLowerCase().includes(q);
-    const inGroup =
-      activeGroups.size === 0 || activeGroups.has(score.group);
+    const inGroup = !activeGroup || score.group === activeGroup;
     return inQuery && inGroup;
   }
 
