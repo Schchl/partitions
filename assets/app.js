@@ -52,7 +52,11 @@
   }
 
   function render() {
-    const results = data.filter(matches);
+    const results = data.filter(matches).sort((a, b) => {
+      const orderA = GROUP_ORDER.indexOf(a.group);
+      const orderB = GROUP_ORDER.indexOf(b.group);
+      return orderA - orderB;
+    });
     rack.innerHTML = "";
 
     results.forEach((score) => {
