@@ -19,6 +19,31 @@ const SCORES = [
     opus: "Romeo and Juliet, Op. 64",
     pdf: "scores/La_Danse_des_Chevaliers.pdf",
     mp3: "audio/La_Danse_des_Chevaliers.mp3"
+  },
+  {
+    title: "All I Want for Christmas Is You",
+    composer: "Mariah Carey",
+    group: "Anciens",
+    category: "Chansons populaires",
+    opus: "1994",
+    pdf: "scores/All_I_Want_for_Christmas_is_You_OSEM-Trompa_en_Fa.pdf",
+    mp3: "audio/All_I_Want_for_Christmas_is_You_OSEM.mp3"
+  },
+  {
+    title: "Valse Débutante",
+    composer: "Evan Call",
+    group: "Anciens",
+    category: "Extraits d'orchestre",
+    pdf: "scores/debutante-waltz-OSEM2026-Trompa_en_Fa_3.pdf",
+    mp3: "audio/debutante-waltz-OSEM2026.mp3"
+  },
+  {
+    title: "Les Indes Galantes",
+    composer: "J. P. Rameau",
+    group: "Anciens",
+    category: "Extraits d'orchestre",
+    pdf: "scores/Indes Galantes _-Trompa_en_Fa.pdf",
+    mp3: "audio/Indes_Galantes.mp3"
   }
   /*{
     title: "Concerto pour cor n°1",
