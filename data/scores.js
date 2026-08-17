@@ -15,9 +15,10 @@ const SCORES = [
     title: "La Danse des Chevaliers",
     composer: "Sergueï Prokofiev",
     group: "Orchestre",
+    category: "Extraits d'orchestre",
     opus: "Romeo and Juliet, Op. 64",
     pdf: "scores/La_Danse_des_Chevaliers.pdf",
-    mp3: "La_Danse_des_Chevaliers.mp3"
+    mp3: "audio/La_Danse_des_Chevaliers.mp3"
   }
   /*{
     title: "Concerto pour cor n°1",
