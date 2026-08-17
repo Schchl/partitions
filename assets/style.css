@@ -89,13 +89,40 @@ h1 span{
   stroke-width: 6;
   stroke-linecap: round;
 }
-.horn-coil-inner{ stroke-opacity: 0.55; }
+.horn-coil-outer{ stroke-width: 6.5; }
+.horn-coil-mid{ stroke-width: 5; stroke-opacity: 0.8; }
+.horn-coil-inner{ stroke-width: 4; stroke-opacity: 0.55; }
+
+.horn-slide{
+  fill: none;
+  stroke: var(--gold-bright);
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+.horn-valve-slide{
+  fill: none;
+  stroke: var(--copper);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
 .horn-mouthpiece{ fill: var(--gold-bright); }
+.horn-mouthpiece-shank{
+  fill: none;
+  stroke: var(--gold-bright);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
 .horn-bell{
-  fill: rgba(201,162,39,0.12);
+  fill: url(#bellGrad);
   stroke: var(--gold);
   stroke-width: 6;
   stroke-linejoin: round;
+}
+.horn-bell-rim{
+  fill: var(--bg-deep);
+  stroke: var(--gold-bright);
+  stroke-width: 2.5;
+  opacity: 0.85;
 }
 .valve rect{ fill: var(--gold-bright); }
 
