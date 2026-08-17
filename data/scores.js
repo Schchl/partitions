@@ -44,17 +44,87 @@ const SCORES = [
     category: "Extraits d'orchestre",
     pdf: "scores/Indes Galantes _-Trompa_en_Fa.pdf",
     mp3: "audio/Indes_Galantes.mp3"
-  }
-  /*{
-    title: "Concerto pour cor n°1",
-    composer: "R. Strauss",
-    group: "Orchestre",
-    category: "Solo / concerto",
-    key: "Mi bémol majeur",
-    opus: "op. 11",
-    pdf: "scores/strauss-concerto-1.pdf",
+  },
+  {
+    title: "Jingle Bell Rock",
+    composer: "?",
+    group: "Anciens",
+    category: "Extraits d'orchestre",
+    pdf: "scores/Jingle_Bell_Rock_OSEM2025-Trompa_en_Fa.pdf",
+    mp3: "audio/Jingle_Bell_Rock_Osem2025.mp3"
+  },
+  {
+    title: "Joyeux Anniversaire",
+    composer: "?",
+    group: "Loisirs",
+    category: "Extraits d'orchestre",
+    pdf: "scores/Joyeux Anniversaire OSEM-F_Horn_1_&_3.pdf",
     mp3: null
-  },*/
+  },
+  {
+    title: "La Marseillaise",
+    composer: "?",
+    group: "Anciens",
+    category: "Extraits d'orchestre",
+    pdf: "scores/La_Marseillaise_OSEM.pdf",
+    mp3: null
+  },
+  {
+    title: "Medley Disney",
+    composer: "?",
+    group: "Anciens",
+    category: "Extraits d'orchestre",
+    pdf: "scores/Medley-Disney-Cor_Fa.pdf",
+    mp3: "audio/Medley-Disney.mp3"
+  },
+  {
+    title: "Santa Claus Is Coming to Town",
+    composer: "?",
+    group: "Anciens",
+    category: "Extraits d'orchestre",
+    pdf: "scores/santa-claus-is-coming-to-town-OSEM-F_Horn.pdf",
+    mp3: "audio/santa-claus-is-coming-to-town-OSEM.mp3"
+  },
+  {
+    title: "STAR WARS",
+    composer: "John Williams",
+    group: "Anciens",
+    category: "Extraits d'orchestre",
+    pdf: "scores/STAR-WARS-Horn_in_F.pdf",
+    mp3: "audio/STAR-WARS.mp3"
+  },
+  {
+    title: "Ticotico",
+    composer: "?",
+    group: "Anciens",
+    category: "Extraits d'orchestre",
+    pdf: "scores/ticotico_vf-Cor_en_Fa.pdf",
+    mp3: "audio/ticotico_vf.wav"
+  },
+  {
+    title: "La Valse Des Fleurs",
+    composer: "?",
+    group: "Anciens",
+    category: "Extraits d'orchestre",
+    pdf: "scores/Valse_Des_Fleurs-Cor_en_Fa.pdf",
+    mp3: "audio/Valse_Des_Fleurs.mp3"
+  },
+  {
+    title: "Vive le vent",
+    composer: "?",
+    group: "Anciens",
+    category: "Extraits d'orchestre",
+    pdf: "scores/Vive-le-vent.pdf",
+    mp3: "audio/Vive-le-vent.mp3"
+  },
+  {
+    title: "We Wish You a Merry Christmas / Petit Papa Noël",
+    composer: "?",
+    group: "Anciens",
+    category: "Extraits d'orchestre",
+    pdf: "scores/we-wish-you-a-merry-christmas-PetitPapaNoël-OSEM 2025-F_Horn.pdf",
+    mp3: "audio/we-wish-you-a-merry-christmas-PetitPapaNoël-OSEM-2025.mp3"
+  }
 ];
 
 window.SCORES = SCORES;
