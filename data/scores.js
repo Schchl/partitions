@@ -43,7 +43,7 @@ const SCORES = [
     group: "Anciens",
     category: "Extraits d'orchestre",
     pdf: "scores/Indes Galantes _-Trompa_en_Fa.pdf",
-    mp3: "audio/Indes_Galantes.mp3"
+    mp3: "audio/Indes-Galantes.mp3"
   },
   {
     title: "Jingle Bell Rock",
