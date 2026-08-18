@@ -140,6 +140,118 @@ const SCORES = [
     category: "Loisir",
     pdf: "scores/from-the-start.pdf",
     mp3: null
+  },
+  {
+    title: "Remember Me Coco",
+    composer: "Ernesto de la Cruz",
+    group: "Loisirs",
+    category: "Loisir",
+    pdf: "scores/Remember-Me-Coco.pdf",
+    mp3: null
+  },
+  {
+    title: "La Panthère Rose",
+    composer: "?",
+    group: "Loisirs",
+    category: "Loisir",
+    pdf: "scores/Panthère-Rose.pdf",
+    mp3: null
+  },
+  {
+    title: "Bink's Sake One Piece",
+    composer: "?",
+    group: "Loisirs",
+    category: "Loisir",
+    pdf: "scores/Bink-s-Sake.pdf",
+    mp3: null
+  },
+  {
+    title: "Bella Ciao",
+    composer: "?",
+    group: "Loisirs",
+    category: "Loisir",
+    pdf: "scores/Bella-Ciao.pdf",
+    mp3: null
+  },
+  {
+    title: "Pokemon",
+    composer: "?",
+    group: "Loisirs",
+    category: "Loisir",
+    pdf: "scores/Pokemon.pdf",
+    mp3: null
+  },
+  {
+    title: "Lava Chicken Minecraft",
+    composer: "?",
+    group: "Loisirs",
+    category: "Loisir",
+    pdf: "scores/Lava-Chicken.pdf",
+    mp3: null
+  },
+  {
+    title: "Peppa Pig",
+    composer: "?",
+    group: "Loisirs",
+    category: "Loisir",
+    pdf: "scores/Peppa-Pig.pdf",
+    mp3: null
+  },
+  {
+    title: "Bob l'eponge",
+    composer: "?",
+    group: "Loisirs",
+    category: "Loisir",
+    pdf: "scores/Bob-l_eponge.pdf",
+    mp3: null
+  },
+  {
+    title: "Le Roi Lion - L'amour brille sous les étoiles",
+    composer: "?",
+    group: "Loisirs",
+    category: "Loisir",
+    pdf: "scores/Le-Roi-Lion.pdf",
+    mp3: null
+  },
+  {
+    title: "I See The Light - Raiponce",
+    composer: "?",
+    group: "Loisirs",
+    category: "Loisir",
+    pdf: "scores/I-See-The-Light-Raiponce.pdf",
+    mp3: null
+  },
+  {
+    title: "Harry Potter",
+    composer: "?",
+    group: "Loisirs",
+    category: "Loisir",
+    pdf: "scores/Harry-Potter.pdf",
+    mp3: null
+  },
+  {
+    title: "Dancing Queen",
+    composer: "ABBA",
+    group: "Loisirs",
+    category: "Loisir",
+    pdf: "scores/Dancing-Queen.pdf",
+    mp3: null
+  },
+  {
+    title: "Daisy Bell",
+    composer: "TADC",
+    group: "Loisirs",
+    category: "Loisir",
+    pdf: "scores/Daisy-TADC.pdf",
+    mp3: null
+  },
+  {
+    title: "Love Like You",
+    composer: "Steven Universe - Rebecca Sugar",
+    group: "Loisirs",
+    category: "Loisir",
+    pdf: "scores/Love-Like-You_Steven-Universe.pdf",
+    mp3: null
   }
 ];
 
