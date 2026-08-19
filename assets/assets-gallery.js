@@ -1,28 +1,15 @@
 (function () {
   const grid = document.getElementById("gallery-grid");
   const template = document.getElementById("photo-template");
-  const searchInput = document.getElementById("gallery-search");
   const statsEl = document.getElementById("gallery-stats");
   const emptyState = document.getElementById("gallery-empty-state");
 
   const data = Array.isArray(window.GALLERY) ? window.GALLERY : [];
-  let query = "";
-
-  function matches(photo) {
-    const q = query.trim().toLowerCase();
-    if (!q) return true;
-    return (
-      (photo.title || "").toLowerCase().includes(q) ||
-      (photo.date || "").toLowerCase().includes(q) ||
-      (photo.anecdote || "").toLowerCase().includes(q)
-    );
-  }
 
   function render() {
-    const results = data.filter(matches);
     grid.innerHTML = "";
 
-    results.forEach((photo) => {
+    data.forEach((photo) => {
       const node = template.content.cloneNode(true);
 
       const img = node.querySelector('[data-field="photo"]');
@@ -42,17 +29,8 @@
       grid.appendChild(node);
     });
 
-    emptyState.hidden = results.length !== 0;
-    statsEl.textContent = `${results.length} / ${data.length} photo${
-      data.length > 1 ? "s" : ""
-    }`;
-  }
-
-  if (searchInput) {
-    searchInput.addEventListener("input", (e) => {
-      query = e.target.value;
-      render();
-    });
+    emptyState.hidden = data.length !== 0;
+    statsEl.textContent = `${data.length} photo${data.length > 1 ? "s" : ""}`;
   }
 
   render();
