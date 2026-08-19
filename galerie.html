@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pupitre — Bibliothèque de cor</title>
+<title>Galerie — Pupitre Cor d'harmonie</title>
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,8 +14,8 @@
 
 <nav class="site-nav">
   <div class="site-nav-inner">
-    <a href="index.html" class="site-nav-link active">Partitions</a>
-    <a href="galerie.html" class="site-nav-link">Galerie photo</a>
+    <a href="index.html" class="site-nav-link">Partitions</a>
+    <a href="galerie.html" class="site-nav-link active">Galerie photo</a>
   </div>
 </nav>
 
@@ -27,8 +27,8 @@
   <div class="hero-inner">
     <div class="hero-text">
       <p class="eyebrow">Pupitre Cor d'harmonie</p>
-      <h1>Tout<br>dans le<span>pavillon</span></h1>
-      <p class="lede">Toutes mes partitions, rangées comme sur un pupitre&nbsp;: le PDF pour lire, le MIDI pour entendre avant de jouer.</p>
+      <h1>Souvenirs<br>en <span>pavillon</span></h1>
+      <p class="lede">Quelques photos glanées au fil des concerts, stages et répétitions — avec la petite histoire derrière chacune.</p>
     </div>
     <svg class="horn-signature" viewBox="0 0 1402 1122" aria-hidden="true">
       <title>Cor d'harmonie — outline avec ouvertures</title>
@@ -40,47 +40,37 @@
 </header>
 
 <main>
-  <section class="controls" aria-label="Filtres">
+  <section class="controls" aria-label="Recherche">
     <div class="search-wrap">
-      <input id="search" type="search" placeholder="Chercher un titre, un compositeur…" autocomplete="off">
+      <input id="gallery-search" type="search" placeholder="Chercher un titre, une date, une anecdote…" autocomplete="off">
     </div>
-    <div class="valves" id="category-filters" role="group" aria-label="Filtrer par catégorie"></div>
   </section>
 
-  <section class="stats" id="stats" aria-live="polite"></section>
+  <section class="stats" id="gallery-stats" aria-live="polite"></section>
 
-  <section class="rack" id="rack"></section>
+  <section class="gallery" id="gallery-grid"></section>
 
-  <p class="empty-state" id="empty-state" hidden>Aucune partition ne correspond — vérifie l'orthographe ou change de valve.</p>
+  <p class="empty-state" id="gallery-empty-state" hidden>Aucune photo ne correspond à ta recherche.</p>
 </main>
 
 <footer>
   <p>Bibliothèque personnelle — appartenant à <code>SCHAUM Chloé</code>.</p>
 </footer>
 
-<template id="card-template">
-  <article class="card">
-    <div class="card-top">
-      <div class="card-top-tags">
-        <span class="tag tag-group" data-field="group"></span>
-        <span class="tag" data-field="category"></span>
-      </div>
-      <span class="key" data-field="key"></span>
+<template id="photo-template">
+  <article class="photo-card">
+    <div class="photo-frame">
+      <img data-field="photo" loading="lazy" alt="">
+      <span class="photo-date" data-field="date"></span>
     </div>
-    <h2 data-field="title"></h2>
-    <p class="composer" data-field="composer"></p>
-    <p class="opus" data-field="opus"></p>
-    <div class="card-actions">
-      <a class="btn-score" data-field="pdfLink" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M6 2h9l5 5v15H6z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M14 2v6h6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
-        Voir la partition
-      </a>
-      <div class="audio-slot" data-field="audioSlot"></div>
+    <div class="photo-body">
+      <h2 data-field="title"></h2>
+      <p class="photo-anecdote" data-field="anecdote"></p>
     </div>
   </article>
 </template>
 
-<script src="data/scores.js"></script>
-<script src="assets/app.js"></script>
+<script src="data/gallery.js"></script>
+<script src="assets/gallery.js"></script>
 </body>
 </html>
