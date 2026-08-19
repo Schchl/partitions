@@ -366,6 +366,7 @@ footer code{
   aspect-ratio: 4 / 3;
   background: var(--bg-deep);
   overflow: hidden;
+  cursor: zoom-in;
 }
 .photo-frame img{
   width: 100%;
@@ -408,3 +409,59 @@ footer code{
   line-height: 1.55;
   color: var(--ivory-dim);
 }
+
+/* ---------- Lightbox ---------- */
+.lightbox{
+  position: fixed;
+  inset: 0;
+  background: rgba(10,15,12,0.92);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  z-index: 1000;
+  cursor: zoom-out;
+}
+.lightbox-figure{
+  margin: 0;
+  max-width: min(1100px, 100%);
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  cursor: default;
+}
+.lightbox-figure img{
+  max-width: 100%;
+  max-height: 78vh;
+  width: auto;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  object-fit: contain;
+}
+.lightbox-figure figcaption{
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12.5px;
+  letter-spacing: 0.03em;
+  color: var(--ivory-dim);
+  text-align: center;
+}
+.lightbox-close{
+  position: fixed;
+  top: 18px;
+  right: 22px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--ivory);
+  font-size: 16px;
+  cursor: pointer;
+  transition: border-color .18s ease, color .18s ease;
+}
+.lightbox-close:hover{ border-color: var(--gold); color: var(--gold-bright); }
