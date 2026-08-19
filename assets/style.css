@@ -416,13 +416,14 @@ footer code{
   inset: 0;
   background: rgba(10,15,12,0.92);
   backdrop-filter: blur(4px);
-  display: flex;
   align-items: center;
   justify-content: center;
   padding: 40px 24px;
   z-index: 1000;
   cursor: zoom-out;
 }
+.lightbox[hidden]{ display: none; }
+.lightbox:not([hidden]){ display: flex; }
 .lightbox-figure{
   margin: 0;
   max-width: min(1100px, 100%);
