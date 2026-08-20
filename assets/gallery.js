@@ -11,6 +11,45 @@
 
   const data = Array.isArray(window.GALLERY) ? window.GALLERY : [];
 
+  // Convertit une date "jj/mm/aaaa" en objet Date. Renvoie null si le
+  // format ne correspond pas exactement (texte libre, vide, etc.).
+  function parseDate(str) {
+    if (typeof str !== "string") return null;
+    const match = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(str.trim());
+    if (!match) return null;
+
+    const day = Number(match[1]);
+    const month = Number(match[2]);
+    const year = Number(match[3]);
+    const date = new Date(year, month - 1, day);
+
+    // Vérifie que la date existe vraiment (ex: 31/02/2024 est invalide)
+    if (
+      date.getFullYear() !== year ||
+      date.getMonth() !== month - 1 ||
+      date.getDate() !== day
+    ) {
+      return null;
+    }
+    return date;
+  }
+
+  // Trie : dates valides du plus récent au plus ancien en premier,
+  // puis tout ce qui n'a pas de date valide, dans leur ordre d'origine.
+  function sortGallery(photos) {
+    return photos
+      .map((photo, index) => ({ photo, index, date: parseDate(photo.date) }))
+      .sort((a, b) => {
+        if (a.date && b.date) return b.date - a.date;
+        if (a.date && !b.date) return -1;
+        if (!a.date && b.date) return 1;
+        return a.index - b.index; // garde l'ordre d'origine entre elles
+      })
+      .map((entry) => entry.photo);
+  }
+
+  const sortedData = sortGallery(data);
+
   function openLightbox(photo) {
     lightboxImg.src = photo.photo;
     lightboxImg.alt = photo.title || "";
@@ -37,7 +76,7 @@
   function render() {
     grid.innerHTML = "";
 
-    data.forEach((photo) => {
+    sortedData.forEach((photo) => {
       const node = template.content.cloneNode(true);
 
       const frame = node.querySelector(".photo-frame");
@@ -69,8 +108,8 @@
       grid.appendChild(node);
     });
 
-    emptyState.hidden = data.length !== 0;
-    statsEl.textContent = `${data.length} photo${data.length > 1 ? "s" : ""}`;
+    emptyState.hidden = sortedData.length !== 0;
+    statsEl.textContent = `${sortedData.length} photo${sortedData.length > 1 ? "s" : ""}`;
   }
 
   render();
