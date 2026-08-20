@@ -10,103 +10,103 @@
 const GALLERY = [
   {
     title: "Concert Peyrou",
-    date: "",
+    date: "13/12/2025",
     anecdote: "",
     photo: "photos/2025_12_13_Concert_Peyrou_1.jpg"
   },
   {
     title: "Concert Peyrou",
-    date: "",
+    date: "13/12/2025",
     anecdote: "",
     photo: "photos/2025_12_13_Concert_Peyrou_2.jpg"
   },
   {
     title: "Présentation audiovisuelle",
-    date: "",
+    date: "07/11/2022",
     anecdote: "",
     photo: "photos/audiovisuel-presentation.jpg"
   },
   {
     title: "Petit solo en concert",
-    date: "",
+    date: "Il y a fort longtemps",
     anecdote: "",
     photo: "photos/concert-petite-solo.jpg"
   },
   {
     title: "Concert à Toulouse",
-    date: "",
+    date: "08/12/2018",
     anecdote: "",
     photo: "photos/concert-toulouse.jpg"
   },
   {
     title: "Concert OSEM — fac de médecine",
-    date: "",
+    date: "31/03/2026",
     anecdote: "",
     photo: "photos/OSEM_concert_fac-medecine1.jpg"
   },
   {
     title: "Concert OSEM — fac de médecine",
-    date: "",
+    date: "30/05/2026",
     anecdote: "",
     photo: "photos/OSEM_concert_fac-medecine2.jpg"
   },
   {
     title: "Photo dans le livre de maman",
-    date: "",
+    date: "Il y a fort longtemps",
     anecdote: "",
     photo: "photos/photo_livre_maman.JPG"
   },
   {
     title: "Concert avec Pierre",
-    date: "",
+    date: "Il y a fort longtemps",
     anecdote: "",
     photo: "photos/photo-concert-pierre.jpg"
   },
   {
     title: "Répétition avec l'orchestre",
-    date: "",
-    anecdote: "",
+    date: "12/04/2026",
+    anecdote: "21/04/2026",
     photo: "photos/Répet_mde_orchestre.jpg"
   },
   {
-    title: "Week-end H",
-    date: "",
+    title: "Week-end OSEM",
+    date: "12/04/2026",
     anecdote: "",
     photo: "photos/WeekEndH_1.16.1.jpg"
   },
   {
-    title: "Week-end H",
-    date: "",
+    title: "Week-end OSEM",
+    date: "12/04/2026",
     anecdote: "",
     photo: "photos/WeekEndH_1.88.1.jpg"
   },
   {
-    title: "Week-end V — test au cor",
-    date: "",
+    title: "Week-end OSEM",
+    date: "12/04/2026",
     anecdote: "",
     photo: "photos/WeekEndV_test-cor.jpg"
   },
   {
-    title: "Week-end V",
-    date: "",
+    title: "Week-end OSEM",
+    date: "12/04/2026",
     anecdote: "",
     photo: "photos/WeekEndV_1.86.1.jpg"
   },
   {
-    title: "Week-end V",
-    date: "",
+    title: "Week-end OSEM",
+    date: "12/04/2026",
     anecdote: "",
     photo: "photos/WeekEndV_1.105.1.jpg"
   },
   {
-    title: "Week-end V",
-    date: "",
+    title: "Week-end OSEM",
+    date: "12/04/2026",
     anecdote: "",
     photo: "photos/WeekEndV_1.106.1.jpg"
   },
   {
-    title: "Week-end V",
-    date: "",
+    title: "Week-end OSEM",
+    date: "12/04/2026",
     anecdote: "",
     photo: "photos/WeekEndV_1.118.1.jpg"
   }
