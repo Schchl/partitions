@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vidéos — Pupitre Cor d'harmonie</title>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="index.html" class="site-nav-link">Partitions</a>
+    <a href="galerie.html" class="site-nav-link">Galerie photo</a>
+    <a href="videos.html" class="site-nav-link active">Vidéos</a>
+  </div>
+</nav>
+
+<div class="valve-rail" aria-hidden="true">
+  <div class="pipe"></div>
+</div>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <p class="eyebrow">Pupitre Cor d'harmonie</p>
+      <h1>Souvenirs<br>en <span>mouvement</span></h1>
+      <p class="lede">Quelques vidéos de concerts et répétitions, hébergées sur Google Drive.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="stats" id="video-stats" aria-live="polite"></section>
+
+  <section class="video-grid" id="video-grid"></section>
+
+  <p class="empty-state" id="video-empty-state" hidden>Aucune vidéo pour l'instant.</p>
+</main>
+
+<footer>
+  <p>Bibliothèque personnelle — appartenant à <code>SCHAUM Chloé</code>.</p>
+</footer>
+
+<template id="video-template">
+  <article class="video-card">
+    <div class="video-frame">
+      <iframe data-field="embed" src="" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      <span class="photo-date" data-field="date"></span>
+    </div>
+    <div class="photo-body">
+      <h2 data-field="title"></h2>
+      <p class="photo-anecdote" data-field="anecdote"></p>
+    </div>
+  </article>
+</template>
+
+<script src="data/videos.js"></script>
+<script src="assets/videos.js"></script>
+</body>
+</html>
