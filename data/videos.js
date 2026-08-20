@@ -12,10 +12,10 @@
 
 const VIDEOS = [
   {
-    title: "Exemple de vidéo",
-    date: "20/08/2026",
+    title: "Valse des fleurs Concert OSEM Fac des sciences",
+    date: "05/06/2026",
     anecdote: "",
-    drive: "https://drive.google.com/file/d/COLLE_L_ID_ICI/view?usp=sharing"
+    drive: "https://drive.google.com/file/d/1mhKBIvfdZ009KV-IGsp29ic6lHYIfu1j/view?usp=sharing"
   }
 ];
 
