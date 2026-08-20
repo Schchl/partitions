@@ -27,7 +27,7 @@ const GALLERY = [
     photo: "photos/audiovisuel-presentation.jpg"
   },
   {
-    title: "Petit solo en concert",
+    title: "Concert en solo",
     date: "Il y a fort longtemps",
     anecdote: "",
     photo: "photos/concert-petite-solo.jpg"
@@ -51,13 +51,13 @@ const GALLERY = [
     photo: "photos/OSEM_concert_fac-medecine2.jpg"
   },
   {
-    title: "Photo dans le livre de maman",
+    title: "Photo pour un magazine pour les mamans",
     date: "Il y a fort longtemps",
     anecdote: "",
     photo: "photos/photo_livre_maman.JPG"
   },
   {
-    title: "Concert avec Pierre",
+    title: "Concert orchestre conservatoire Béziers",
     date: "Il y a fort longtemps",
     anecdote: "",
     photo: "photos/photo-concert-pierre.jpg"
