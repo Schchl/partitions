@@ -15,7 +15,13 @@ const VIDEOS = [
     title: "Valse des fleurs Concert OSEM Fac des sciences",
     date: "05/06/2026",
     anecdote: "",
-    drive: "https://drive.google.com/file/d/1mhKBIvfdZ009KV-IGsp29ic6lHYIfu1j/view?usp=sharing"
+    drive: "https://drive.google.com/file/d/1IliGmFtaJ7W1dLjEldREYdKBLg2dWp-h/view?usp=sharing"
+  },
+  {
+    title: "Solo Star Wars Concert OSEM Fac des sciences",
+    date: "05/06/2026",
+    anecdote: "",
+    drive: "https://drive.google.com/file/d/1r0Q2tNnY_PJbppUNnO_ow2BBVimx-Voj/view?usp=sharing"
   }
 ];
 
