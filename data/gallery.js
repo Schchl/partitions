@@ -109,6 +109,12 @@ const GALLERY = [
     date: "12/04/2026",
     anecdote: "",
     photo: "photos/WeekEndV_1.118.1.jpg"
+  },
+  {
+    title: "Pupitre Cuivres OSEM 2025-2026",
+    date: "05/06/2026",
+    anecdote: "Il manque beaucoup trop de gens sur cette image",
+    photo: "photos/Cuivres-OSEM-2026.jpg"
   }
 ];
 
