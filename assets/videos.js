@@ -4,6 +4,11 @@
   const statsEl = document.getElementById("video-stats");
   const emptyState = document.getElementById("video-empty-state");
 
+  const lightbox = document.getElementById("lightbox");
+  const lightboxVideo = document.getElementById("lightbox-video");
+  const lightboxCaption = document.getElementById("lightbox-caption");
+  const lightboxClose = document.getElementById("lightbox-close");
+
   const data = Array.isArray(window.VIDEOS) ? window.VIDEOS : [];
 
   // Convertit une date "jj/mm/aaaa" en objet Date. Renvoie null si le
@@ -55,6 +60,30 @@
 
   const sortedData = sortVideos(data);
 
+  function openLightbox(video) {
+    const driveId = extractDriveId(video.drive);
+    if (!driveId) return;
+    lightboxVideo.src = `https://drive.google.com/file/d/${driveId}/preview`;
+    const parts = [video.title, video.date].filter(Boolean);
+    lightboxCaption.textContent = parts.join(" — ");
+    lightbox.hidden = false;
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    lightbox.hidden = true;
+    lightboxVideo.src = ""; // coupe la lecture en fermant
+    document.body.style.overflow = "";
+  }
+
+  lightboxClose.addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !lightbox.hidden) closeLightbox();
+  });
+
   function render() {
     grid.innerHTML = "";
 
@@ -67,6 +96,15 @@
       const iframe = node.querySelector('[data-field="embed"]');
       iframe.src = `https://drive.google.com/file/d/${driveId}/preview`;
       iframe.title = video.title || "Vidéo";
+
+      const overlay = node.querySelector('[data-field="overlay"]');
+      overlay.addEventListener("click", () => openLightbox(video));
+      overlay.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          openLightbox(video);
+        }
+      });
 
       node.querySelector('[data-field="date"]').textContent = video.date || "";
       node.querySelector('[data-field="title"]').textContent = video.title || "";
