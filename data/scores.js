@@ -252,6 +252,14 @@ const SCORES = [
     category: "Loisir",
     pdf: "scores/Love-Like-You_Steven-Universe.pdf",
     mp3: null
+  },
+  {
+    title: "Star Wars 2.0",
+    composer: "Steven Universe - Rebecca Sugar",
+    group: "Orchestre",
+    category: "Loisir",
+    pdf: "scores/Star-Wars2.0Cor_en_Fa.pdf",
+    mp3: "audio/Star-Wars-2.0.mp3"
   }
 ];
 
