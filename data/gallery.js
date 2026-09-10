@@ -23,7 +23,7 @@ const GALLERY = [
   {
     title: "Présentation audiovisuelle",
     date: "07/11/2022",
-    anecdote: "",
+    anecdote: "Interview réalisée pour une SAE audiovisuelle pour mon BUT MMI 1",
     photo: "photos/audiovisuel-presentation.webp"
   },
   {
@@ -35,7 +35,7 @@ const GALLERY = [
   {
     title: "Concert à Toulouse",
     date: "08/12/2018",
-    anecdote: "",
+    anecdote: "Regroupement de cor d'harmonie à Toulouse",
     photo: "photos/concert-toulouse.webp"
   },
   {
@@ -113,7 +113,7 @@ const GALLERY = [
   {
     title: "Pupitre Cuivres OSEM 2025-2026",
     date: "05/06/2026",
-    anecdote: "Il manque beaucoup trop de gens sur cette image",
+    anecdote: "Petite pensée aux personnes absentes sur la photo :c",
     photo: "photos/Cuivres-OSEM-2026.webp"
   }
 ];
