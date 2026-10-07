@@ -9,11 +9,63 @@
   const data = Array.isArray(window.SCORES) ? window.SCORES : [];
 
   // Ordre fixe des groupes affichés dans les filtres (les "valves").
-  // On garde toujours cet ordre, même si un groupe n'a encore aucune partition.
   const GROUP_ORDER = ["Orchestre", "Loisirs", "Anciens"];
 
-  let activeGroup = null; // sélection unique : un seul groupe actif à la fois (ou null = tous)
+  let activeGroup = null; // un seul groupe actif à la fois (ou null = tous)
   let query = "";
+
+  const PDF_ICON =
+    '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M6 2h9l5 5v15H6z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M14 2v6h6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
+
+  // Retourne la liste des parties d'une partition (compatible ancien format)
+  function getParts(score) {
+    if (Array.isArray(score.parts) && score.parts.length) return score.parts;
+    return [{ label: "", pdf: score.pdf, mp3: score.mp3 }];
+  }
+
+  function buildPartRow(part) {
+    const row = document.createElement("div");
+    row.className = "part-row";
+
+    if (part.label) {
+      const label = document.createElement("span");
+      label.className = "part-label";
+      label.textContent = part.label;
+      row.appendChild(label);
+    }
+
+    const link = document.createElement("a");
+    link.className = "btn-score";
+    link.target = "_blank";
+    link.rel = "noopener";
+    if (part.pdf) {
+      link.href = part.pdf;
+      link.innerHTML = PDF_ICON + " Voir la partition";
+    } else {
+      link.href = "#";
+      link.classList.add("disabled");
+      link.textContent = "Partition à ajouter";
+    }
+    row.appendChild(link);
+
+    const audioSlot = document.createElement("div");
+    audioSlot.className = "audio-slot";
+    if (part.mp3) {
+      const audio = document.createElement("audio");
+      audio.controls = true;
+      audio.preload = "none";
+      audio.src = part.mp3;
+      audioSlot.appendChild(audio);
+    } else {
+      const badge = document.createElement("span");
+      badge.className = "no-audio";
+      badge.textContent = "♪ pas encore de MIDI";
+      audioSlot.appendChild(badge);
+    }
+    row.appendChild(audioSlot);
+
+    return row;
+  }
 
   function buildFilters() {
     GROUP_ORDER.forEach((group) => {
@@ -23,13 +75,7 @@
       btn.textContent = group;
       btn.setAttribute("aria-pressed", "false");
       btn.addEventListener("click", () => {
-        if (activeGroup === group) {
-          // reclic sur le même bouton -> on désélectionne, on affiche tout
-          activeGroup = null;
-        } else {
-          activeGroup = group;
-        }
-        // met à jour l'état visuel de tous les boutons
+        activeGroup = activeGroup === group ? null : group;
         filtersEl.querySelectorAll(".valve-btn").forEach((b) => {
           const isActive = b.textContent === activeGroup;
           b.classList.toggle("active", isActive);
@@ -71,28 +117,10 @@
       node.querySelector('[data-field="composer"]').textContent = score.composer;
       node.querySelector('[data-field="opus"]').textContent = score.opus || "";
 
-      const pdfLink = node.querySelector('[data-field="pdfLink"]');
-      if (score.pdf) {
-        pdfLink.href = score.pdf;
-      } else {
-        pdfLink.href = "#";
-        pdfLink.classList.add("disabled");
-        pdfLink.textContent = "Partition à ajouter";
-      }
-
-      const audioSlot = node.querySelector('[data-field="audioSlot"]');
-      if (score.mp3) {
-        const audio = document.createElement("audio");
-        audio.controls = true;
-        audio.preload = "none";
-        audio.src = score.mp3;
-        audioSlot.appendChild(audio);
-      } else {
-        const badge = document.createElement("span");
-        badge.className = "no-audio";
-        badge.textContent = "♪ pas encore de MIDI";
-        audioSlot.appendChild(badge);
-      }
+      // Une ligne par partie (Cor 1, Cor 2…)
+      const actions = node.querySelector(".card-actions");
+      actions.innerHTML = "";
+      getParts(score).forEach((part) => actions.appendChild(buildPartRow(part)));
 
       rack.appendChild(card);
     });
@@ -100,7 +128,7 @@
     emptyState.hidden = results.length !== 0;
     statsEl.textContent = `${results.length} / ${data.length} partition${
       data.length > 1 ? "s" : ""
-    } — ${data.filter((s) => s.mp3).length} avec un enregistrement`;
+    } — ${data.filter((s) => getParts(s).some((p) => p.mp3)).length} avec un enregistrement`;
   }
 
   searchInput.addEventListener("input", (e) => {

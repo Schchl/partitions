@@ -522,3 +522,26 @@ footer code{
   transition: border-color .18s ease, color .18s ease;
 }
 .lightbox-close:hover{ border-color: var(--gold); color: var(--gold-bright); }
+
+.card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.part-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+}
+.part-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  padding: 0.15rem 0.7rem;
+  min-width: 3.5rem;
+  text-align: center;
+}
