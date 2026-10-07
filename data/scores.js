@@ -275,9 +275,10 @@ const SCORES = [
   group: "Orchestre",
   category: "Extraits d'orchestre",
   parts: [
-    { label: "Cor 1", pdf: "scores/Danzon_n_2-Cor_en_Fa.pdf", mp3: "audio/Danzon_n_2-MIDI.mp3" },
-    { label: "Cor 2", pdf: "scores/Danzon_n_2-Cor_en_Fa_2.pdf", mp3: null }
-  ]
+    { label: "Cor 1", pdf: "scores/Danzon_n_2-Cor_en_Fa.pdf" },
+    { label: "Cor 2", pdf: "scores/Danzon_n_2-Cor_en_Fa_2.pdf" }
+  ],
+  mp3: "audio/Danzon_n_2-MIDI.mp3"
 },
 ];
 
