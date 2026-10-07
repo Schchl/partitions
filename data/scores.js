@@ -1,285 +1,146 @@
-// Chaque partition = une ligne ci-dessous.
-// - group : catégorie du filtre principal en haut de page. Utilise UNIQUEMENT
-//   l'une de ces trois valeurs, orthographiées exactement ainsi :
-//     "Orchestre"  → morceaux joués avec l'orchestre / répertoire orchestral
-//     "Loisirs"    → morceaux joués pour le plaisir, hors orchestre
-//     "Anciens"    → anciens morceaux, plus joués actuellement
-// - category : sous-étiquette libre affichée sur la carte (tu peux inventer
-//   ce que tu veux : "Solo / concerto", "Musique de chambre", "Fanfare"…)
-// - pdf : chemin vers le fichier dans /scores (obligatoire pour que le bouton fonctionne)
-// - mp3 : chemin vers le fichier dans /audio, ou null si tu n'as pas encore d'enregistrement
-// - key et opus sont facultatifs, laisse "" si non utilisés.
+(function () {
+  const rack = document.getElementById("rack");
+  const template = document.getElementById("card-template");
+  const searchInput = document.getElementById("search");
+  const filtersEl = document.getElementById("category-filters");
+  const statsEl = document.getElementById("stats");
+  const emptyState = document.getElementById("empty-state");
 
-const SCORES = [
-  {
-    title: "La Danse des Chevaliers",
-    composer: "Sergueï Prokofiev",
-    group: "Orchestre",
-    category: "Extraits d'orchestre",
-    opus: "Romeo and Juliet, Op. 64",
-    pdf: "scores/La_Danse_des_Chevaliers.pdf",
-    mp3: "audio/La_Danse_des_Chevaliers.mp3"
-  },
-  {
-    title: "All I Want for Christmas Is You",
-    composer: "Mariah Carey",
-    group: "Anciens",
-    category: "Chansons populaires",
-    opus: "1994",
-    pdf: "scores/All_I_Want_for_Christmas_is_You_OSEM-Trompa_en_Fa.pdf",
-    mp3: "audio/All_I_Want_for_Christmas_is_You_OSEM.mp3"
-  },
-  {
-    title: "Valse Débutante",
-    composer: "Evan Call",
-    group: "Anciens",
-    category: "Extraits d'orchestre",
-    pdf: "scores/debutante-waltz-OSEM2026-Trompa_en_Fa_3.pdf",
-    mp3: "audio/debutante-waltz-OSEM2026.mp3"
-  },
-  {
-    title: "Les Indes Galantes",
-    composer: "J. P. Rameau",
-    group: "Orchestre",
-    category: "Extraits d'orchestre",
-    pdf: "scores/Indes Galantes _-Trompa_en_Fa.pdf",
-    mp3: "audio/Indes-Galantes.mp3"
-  },
-  {
-    title: "Jingle Bell Rock",
-    composer: "?",
-    group: "Anciens",
-    category: "Extraits d'orchestre",
-    pdf: "scores/Jingle_Bell_Rock_OSEM2025-Trompa_en_Fa.pdf",
-    mp3: "audio/Jingle_Bell_Rock_Osem2025.mp3"
-  },
-  {
-    title: "Joyeux Anniversaire",
-    composer: "?",
-    group: "Loisirs",
-    category: "Extraits d'orchestre",
-    pdf: "scores/Joyeux Anniversaire OSEM-F_Horn_1_&_3.pdf",
-    mp3: null
-  },
-  {
-    title: "La Marseillaise",
-    composer: "?",
-    group: "Anciens",
-    category: "Extraits d'orchestre",
-    pdf: "scores/La_Marseillaise_OSEM.pdf",
-    mp3: null
-  },
-  {
-    title: "Medley Disney",
-    composer: "?",
-    group: "Anciens",
-    category: "Extraits d'orchestre",
-    pdf: "scores/Medley-Disney-Cor_Fa.pdf",
-    mp3: "audio/Medley-Disney.mp3"
-  },
-  {
-    title: "Santa Claus Is Coming to Town",
-    composer: "?",
-    group: "Anciens",
-    category: "Extraits d'orchestre",
-    pdf: "scores/santa-claus-is-coming-to-town-OSEM-F_Horn.pdf",
-    mp3: "audio/santa-claus-is-coming-to-town-OSEM.mp3"
-  },
-  {
-    title: "STAR WARS",
-    composer: "John Williams",
-    group: "Anciens",
-    category: "Extraits d'orchestre",
-    pdf: "scores/STAR-WARS-Horn_in_F.pdf",
-    mp3: "audio/STAR-WARS.mp3"
-  },
-  {
-    title: "Ticotico",
-    composer: "?",
-    group: "Anciens",
-    category: "Extraits d'orchestre",
-    pdf: "scores/ticotico_vf-Cor_en_Fa.pdf",
-    mp3: "audio/ticotico_vf.wav"
-  },
-  {
-    title: "La Valse Des Fleurs",
-    composer: "?",
-    group: "Anciens",
-    category: "Extraits d'orchestre",
-    pdf: "scores/Valse_Des_Fleurs-Cor_en_Fa.pdf",
-    mp3: "audio/Valse_Des_Fleurs.mp3"
-  },
-  {
-    title: "Vive le vent",
-    composer: "?",
-    group: "Anciens",
-    category: "Extraits d'orchestre",
-    pdf: "scores/Vive-le-vent.pdf",
-    mp3: "audio/Vive-le-vent.mp3"
-  },
-  {
-    title: "We Wish You a Merry Christmas / Petit Papa Noël",
-    composer: "?",
-    group: "Anciens",
-    category: "Extraits d'orchestre",
-    pdf: "scores/we-wish-you-a-merry-christmas-PetitPapaNoël-OSEM 2025-F_Horn.pdf",
-    mp3: "audio/we-wish-you-a-merry-christmas-PetitPapaNoël-OSEM-2025.mp3"
-  },
-  {
-    title: "Serenade for horn and band",
-    composer: "?",
-    group: "Anciens",
-    category: "Cours cor",
-    pdf: "scores/serenade-for-horn-and-band.pdf",
-    mp3: null
-  },
-  {
-    title: "From the start",
-    composer: "?",
-    group: "Loisirs",
-    category: "Loisir",
-    pdf: "scores/from-the-start.pdf",
-    mp3: null
-  },
-  {
-    title: "Remember Me Coco",
-    composer: "Ernesto de la Cruz",
-    group: "Loisirs",
-    category: "Loisir",
-    pdf: "scores/Remember-Me-Coco.pdf",
-    mp3: null
-  },
-  {
-    title: "La Panthère Rose",
-    composer: "?",
-    group: "Loisirs",
-    category: "Loisir",
-    pdf: "scores/Panthère-Rose.pdf",
-    mp3: null
-  },
-  {
-    title: "Bink's Sake One Piece",
-    composer: "?",
-    group: "Loisirs",
-    category: "Loisir",
-    pdf: "scores/Bink-s-Sake.pdf",
-    mp3: null
-  },
-  {
-    title: "Bella Ciao",
-    composer: "?",
-    group: "Loisirs",
-    category: "Loisir",
-    pdf: "scores/Bella-Ciao.pdf",
-    mp3: null
-  },
-  {
-    title: "Pokemon",
-    composer: "?",
-    group: "Loisirs",
-    category: "Loisir",
-    pdf: "scores/Pokemon.pdf",
-    mp3: null
-  },
-  {
-    title: "Lava Chicken Minecraft",
-    composer: "?",
-    group: "Loisirs",
-    category: "Loisir",
-    pdf: "scores/Lava-Chicken.pdf",
-    mp3: null
-  },
-  {
-    title: "Peppa Pig",
-    composer: "?",
-    group: "Loisirs",
-    category: "Loisir",
-    pdf: "scores/Peppa-Pig.pdf",
-    mp3: null
-  },
-  {
-    title: "Bob l'eponge",
-    composer: "?",
-    group: "Loisirs",
-    category: "Loisir",
-    pdf: "scores/Bob-l_eponge.pdf",
-    mp3: null
-  },
-  {
-    title: "Le Roi Lion - L'amour brille sous les étoiles",
-    composer: "?",
-    group: "Loisirs",
-    category: "Loisir",
-    pdf: "scores/Le-Roi-Lion.pdf",
-    mp3: null
-  },
-  {
-    title: "I See The Light - Raiponce",
-    composer: "?",
-    group: "Loisirs",
-    category: "Loisir",
-    pdf: "scores/I-See-The-Light-Raiponce.pdf",
-    mp3: null
-  },
-  {
-    title: "Harry Potter",
-    composer: "?",
-    group: "Loisirs",
-    category: "Loisir",
-    pdf: "scores/Harry-Potter.pdf",
-    mp3: null
-  },
-  {
-    title: "Dancing Queen",
-    composer: "ABBA",
-    group: "Loisirs",
-    category: "Loisir",
-    pdf: "scores/Dancing-Queen.pdf",
-    mp3: null
-  },
-  {
-    title: "Daisy Bell",
-    composer: "TADC",
-    group: "Loisirs",
-    category: "Loisir",
-    pdf: "scores/Daisy-TADC.pdf",
-    mp3: null
-  },
-  {
-    title: "Love Like You",
-    composer: "Steven Universe - Rebecca Sugar",
-    group: "Loisirs",
-    category: "Loisir",
-    pdf: "scores/Love-Like-You_Steven-Universe.pdf",
-    mp3: null
-  },
-  {
-    title: "Star Wars 2.0",
-    composer: "John Williams",
-    group: "Orchestre",
-    category: "Loisir",
-    pdf: "scores/Star-Wars2.0Cor_en_Fa.pdf",
-    mp3: "audio/Star-Wars-2.0.mp3"
-  },
-  {
-    title: "Money Money Money",
-    composer: "ABBA",
-    group: "Orchestre",
-    category: "Orchestre",
-    pdf: "scores/ABBA-Cor_en_Fa.pdf",
-    mp3: null
-  },
-  {
-  title: "Danzon no. 2",
-  composer: "Arturo Márquez",
-  group: "Orchestre",
-  category: "Extraits d'orchestre",
-  parts: [
-    { label: "Cor 1", pdf: "scores/Danzon_n_2-Cor_en_Fa.pdf" },
-    { label: "Cor 2", pdf: "scores/Danzon_n_2-Cor_en_Fa_2.pdf" }
-  ],
-  mp3: "audio/Danzon_n_2-MIDI.mp3"
-},
-];
+  const data = Array.isArray(window.SCORES) ? window.SCORES : [];
 
-window.SCORES = SCORES;
+  // Ordre fixe des groupes affichés dans les filtres (les "valves").
+  const GROUP_ORDER = ["Orchestre", "Loisirs", "Anciens"];
+
+  let activeGroup = null; // un seul groupe actif à la fois (ou null = tous)
+  let query = "";
+
+  const PDF_ICON =
+    '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M6 2h9l5 5v15H6z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M14 2v6h6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
+
+  // Retourne la liste des parties d'une partition (compatible ancien format)
+  function getParts(score) {
+    if (Array.isArray(score.parts) && score.parts.length) return score.parts;
+    return [{ label: "", pdf: score.pdf }];
+  }
+
+  // Une ligne = un bouton PDF (avec pastille "Cor 1", "Cor 2"… si label)
+  function buildPartRow(part) {
+    const row = document.createElement("div");
+    row.className = "part-row";
+
+    if (part.label) {
+      const label = document.createElement("span");
+      label.className = "part-label";
+      label.textContent = part.label;
+      row.appendChild(label);
+    }
+
+    const link = document.createElement("a");
+    link.className = "btn-score";
+    link.target = "_blank";
+    link.rel = "noopener";
+    if (part.pdf) {
+      link.href = part.pdf;
+      link.innerHTML = PDF_ICON + " Voir la partition";
+    } else {
+      link.href = "#";
+      link.classList.add("disabled");
+      link.textContent = "Partition à ajouter";
+    }
+    row.appendChild(link);
+
+    return row;
+  }
+
+  // Lecteur audio unique pour toute la partition
+  function buildAudio(mp3) {
+    const audioSlot = document.createElement("div");
+    audioSlot.className = "audio-slot";
+    if (mp3) {
+      const audio = document.createElement("audio");
+      audio.controls = true;
+      audio.preload = "none";
+      audio.src = mp3;
+      audioSlot.appendChild(audio);
+    } else {
+      const badge = document.createElement("span");
+      badge.className = "no-audio";
+      badge.textContent = "♪ pas encore de MIDI";
+      audioSlot.appendChild(badge);
+    }
+    return audioSlot;
+  }
+
+  function buildFilters() {
+    GROUP_ORDER.forEach((group) => {
+      const btn = document.createElement("button");
+      btn.className = "valve-btn";
+      btn.type = "button";
+      btn.textContent = group;
+      btn.setAttribute("aria-pressed", "false");
+      btn.addEventListener("click", () => {
+        activeGroup = activeGroup === group ? null : group;
+        filtersEl.querySelectorAll(".valve-btn").forEach((b) => {
+          const isActive = b.textContent === activeGroup;
+          b.classList.toggle("active", isActive);
+          b.setAttribute("aria-pressed", isActive ? "true" : "false");
+        });
+        render();
+      });
+      filtersEl.appendChild(btn);
+    });
+  }
+
+  function matches(score) {
+    const q = query.trim().toLowerCase();
+    const inQuery =
+      !q ||
+      score.title.toLowerCase().includes(q) ||
+      score.composer.toLowerCase().includes(q);
+    const inGroup = !activeGroup || score.group === activeGroup;
+    return inQuery && inGroup;
+  }
+
+  function render() {
+    const results = data.filter(matches).sort((a, b) => {
+      const orderA = GROUP_ORDER.indexOf(a.group);
+      const orderB = GROUP_ORDER.indexOf(b.group);
+      if (orderA !== orderB) return orderA - orderB;
+      return a.title.localeCompare(b.title, "fr", { sensitivity: "base" });
+    });
+    rack.innerHTML = "";
+
+    results.forEach((score) => {
+      const node = template.content.cloneNode(true);
+      const card = node.querySelector(".card");
+
+      node.querySelector('[data-field="group"]').textContent = score.group || "";
+      node.querySelector('[data-field="category"]').textContent = score.category;
+      node.querySelector('[data-field="key"]').textContent = score.key || "";
+      node.querySelector('[data-field="title"]').textContent = score.title;
+      node.querySelector('[data-field="composer"]').textContent = score.composer;
+      node.querySelector('[data-field="opus"]').textContent = score.opus || "";
+
+      // Une ligne par partie (Cor 1, Cor 2…), puis un seul lecteur audio
+      const actions = node.querySelector(".card-actions");
+      actions.innerHTML = "";
+      getParts(score).forEach((part) => actions.appendChild(buildPartRow(part)));
+      actions.appendChild(buildAudio(score.mp3));
+
+      rack.appendChild(card);
+    });
+
+    emptyState.hidden = results.length !== 0;
+    statsEl.textContent = `${results.length} / ${data.length} partition${
+      data.length > 1 ? "s" : ""
+    } — ${data.filter((s) => s.mp3).length} avec un enregistrement`;
+  }
+
+  searchInput.addEventListener("input", (e) => {
+    query = e.target.value;
+    render();
+  });
+
+  buildFilters();
+  render();
+})();
