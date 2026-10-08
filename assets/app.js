@@ -20,9 +20,10 @@
   // Retourne la liste des parties d'une partition (compatible ancien format)
   function getParts(score) {
     if (Array.isArray(score.parts) && score.parts.length) return score.parts;
-    return [{ label: "", pdf: score.pdf, mp3: score.mp3 }];
+    return [{ label: "", pdf: score.pdf }];
   }
 
+  // Une ligne = un bouton PDF (avec pastille "Cor 1", "Cor 2"… si label)
   function buildPartRow(part) {
     const row = document.createElement("div");
     row.className = "part-row";
@@ -48,13 +49,18 @@
     }
     row.appendChild(link);
 
+    return row;
+  }
+
+  // Lecteur audio unique pour toute la partition
+  function buildAudio(mp3) {
     const audioSlot = document.createElement("div");
     audioSlot.className = "audio-slot";
-    if (part.mp3) {
+    if (mp3) {
       const audio = document.createElement("audio");
       audio.controls = true;
       audio.preload = "none";
-      audio.src = part.mp3;
+      audio.src = mp3;
       audioSlot.appendChild(audio);
     } else {
       const badge = document.createElement("span");
@@ -62,9 +68,7 @@
       badge.textContent = "♪ pas encore de MIDI";
       audioSlot.appendChild(badge);
     }
-    row.appendChild(audioSlot);
-
-    return row;
+    return audioSlot;
   }
 
   function buildFilters() {
@@ -117,10 +121,11 @@
       node.querySelector('[data-field="composer"]').textContent = score.composer;
       node.querySelector('[data-field="opus"]').textContent = score.opus || "";
 
-      // Une ligne par partie (Cor 1, Cor 2…)
+      // Une ligne par partie (Cor 1, Cor 2…), puis un seul lecteur audio
       const actions = node.querySelector(".card-actions");
       actions.innerHTML = "";
       getParts(score).forEach((part) => actions.appendChild(buildPartRow(part)));
+      actions.appendChild(buildAudio(score.mp3));
 
       rack.appendChild(card);
     });
@@ -128,7 +133,7 @@
     emptyState.hidden = results.length !== 0;
     statsEl.textContent = `${results.length} / ${data.length} partition${
       data.length > 1 ? "s" : ""
-    } — ${data.filter((s) => getParts(s).some((p) => p.mp3)).length} avec un enregistrement`;
+    } — ${data.filter((s) => s.mp3).length} avec un enregistrement`;
   }
 
   searchInput.addEventListener("input", (e) => {
