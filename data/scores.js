@@ -15,7 +15,6 @@ const SCORES = [
     title: "La Danse des Chevaliers",
     composer: "Sergueï Prokofiev",
     group: "Orchestre",
-    category: "Extraits d'orchestre",
     opus: "Romeo and Juliet, Op. 64",
     pdf: "scores/La_Danse_des_Chevaliers.pdf",
     mp3: "audio/La_Danse_des_Chevaliers.mp3"
@@ -24,7 +23,6 @@ const SCORES = [
     title: "All I Want for Christmas Is You",
     composer: "Mariah Carey",
     group: "Anciens",
-    category: "Chansons populaires",
     opus: "1994",
     pdf: "scores/All_I_Want_for_Christmas_is_You_OSEM-Trompa_en_Fa.pdf",
     mp3: "audio/All_I_Want_for_Christmas_is_You_OSEM.mp3"
@@ -33,7 +31,6 @@ const SCORES = [
     title: "Valse Débutante",
     composer: "Evan Call",
     group: "Anciens",
-    category: "Extraits d'orchestre",
     pdf: "scores/debutante-waltz-OSEM2026-Trompa_en_Fa_3.pdf",
     mp3: "audio/debutante-waltz-OSEM2026.mp3"
   },
@@ -41,7 +38,6 @@ const SCORES = [
     title: "Les Indes Galantes",
     composer: "J. P. Rameau",
     group: "Orchestre",
-    category: "Extraits d'orchestre",
     pdf: "scores/Indes Galantes _-Trompa_en_Fa.pdf",
     mp3: "audio/Indes-Galantes.mp3"
   },
@@ -49,7 +45,6 @@ const SCORES = [
     title: "Jingle Bell Rock",
     composer: "?",
     group: "Anciens",
-    category: "Extraits d'orchestre",
     pdf: "scores/Jingle_Bell_Rock_OSEM2025-Trompa_en_Fa.pdf",
     mp3: "audio/Jingle_Bell_Rock_Osem2025.mp3"
   },
@@ -57,7 +52,6 @@ const SCORES = [
     title: "Joyeux Anniversaire",
     composer: "?",
     group: "Loisirs",
-    category: "Extraits d'orchestre",
     pdf: "scores/Joyeux Anniversaire OSEM-F_Horn_1_&_3.pdf",
     mp3: null
   },
@@ -65,7 +59,6 @@ const SCORES = [
     title: "La Marseillaise",
     composer: "?",
     group: "Anciens",
-    category: "Extraits d'orchestre",
     pdf: "scores/La_Marseillaise_OSEM.pdf",
     mp3: null
   },
@@ -73,7 +66,6 @@ const SCORES = [
     title: "Medley Disney",
     composer: "?",
     group: "Anciens",
-    category: "Extraits d'orchestre",
     pdf: "scores/Medley-Disney-Cor_Fa.pdf",
     mp3: "audio/Medley-Disney.mp3"
   },
@@ -81,7 +73,6 @@ const SCORES = [
     title: "Santa Claus Is Coming to Town",
     composer: "?",
     group: "Anciens",
-    category: "Extraits d'orchestre",
     pdf: "scores/santa-claus-is-coming-to-town-OSEM-F_Horn.pdf",
     mp3: "audio/santa-claus-is-coming-to-town-OSEM.mp3"
   },
@@ -89,7 +80,6 @@ const SCORES = [
     title: "STAR WARS",
     composer: "John Williams",
     group: "Anciens",
-    category: "Extraits d'orchestre",
     pdf: "scores/STAR-WARS-Horn_in_F.pdf",
     mp3: "audio/STAR-WARS.mp3"
   },
@@ -97,7 +87,6 @@ const SCORES = [
     title: "Ticotico",
     composer: "?",
     group: "Anciens",
-    category: "Extraits d'orchestre",
     pdf: "scores/ticotico_vf-Cor_en_Fa.pdf",
     mp3: "audio/ticotico_vf.wav"
   },
@@ -105,7 +94,6 @@ const SCORES = [
     title: "La Valse Des Fleurs",
     composer: "?",
     group: "Anciens",
-    category: "Extraits d'orchestre",
     pdf: "scores/Valse_Des_Fleurs-Cor_en_Fa.pdf",
     mp3: "audio/Valse_Des_Fleurs.mp3"
   },
@@ -113,7 +101,6 @@ const SCORES = [
     title: "Vive le vent",
     composer: "?",
     group: "Anciens",
-    category: "Extraits d'orchestre",
     pdf: "scores/Vive-le-vent.pdf",
     mp3: "audio/Vive-le-vent.mp3"
   },
@@ -121,7 +108,6 @@ const SCORES = [
     title: "We Wish You a Merry Christmas / Petit Papa Noël",
     composer: "?",
     group: "Anciens",
-    category: "Extraits d'orchestre",
     pdf: "scores/we-wish-you-a-merry-christmas-PetitPapaNoël-OSEM 2025-F_Horn.pdf",
     mp3: "audio/we-wish-you-a-merry-christmas-PetitPapaNoël-OSEM-2025.mp3"
   },
@@ -129,7 +115,6 @@ const SCORES = [
     title: "Serenade for horn and band",
     composer: "?",
     group: "Anciens",
-    category: "Cours cor",
     pdf: "scores/serenade-for-horn-and-band.pdf",
     mp3: null
   },
@@ -137,7 +122,6 @@ const SCORES = [
     title: "From the start",
     composer: "?",
     group: "Loisirs",
-    category: "Loisir",
     pdf: "scores/from-the-start.pdf",
     mp3: null
   },
@@ -145,7 +129,6 @@ const SCORES = [
     title: "Remember Me Coco",
     composer: "Ernesto de la Cruz",
     group: "Loisirs",
-    category: "Loisir",
     pdf: "scores/Remember-Me-Coco.pdf",
     mp3: null
   },
@@ -153,7 +136,6 @@ const SCORES = [
     title: "La Panthère Rose",
     composer: "?",
     group: "Loisirs",
-    category: "Loisir",
     pdf: "scores/Panthère-Rose.pdf",
     mp3: null
   },
@@ -161,7 +143,6 @@ const SCORES = [
     title: "Bink's Sake One Piece",
     composer: "?",
     group: "Loisirs",
-    category: "Loisir",
     pdf: "scores/Bink-s-Sake.pdf",
     mp3: null
   },
@@ -169,7 +150,6 @@ const SCORES = [
     title: "Bella Ciao",
     composer: "?",
     group: "Loisirs",
-    category: "Loisir",
     pdf: "scores/Bella-Ciao.pdf",
     mp3: null
   },
@@ -177,7 +157,6 @@ const SCORES = [
     title: "Pokemon",
     composer: "?",
     group: "Loisirs",
-    category: "Loisir",
     pdf: "scores/Pokemon.pdf",
     mp3: null
   },
@@ -185,7 +164,6 @@ const SCORES = [
     title: "Lava Chicken Minecraft",
     composer: "?",
     group: "Loisirs",
-    category: "Loisir",
     pdf: "scores/Lava-Chicken.pdf",
     mp3: null
   },
@@ -193,7 +171,6 @@ const SCORES = [
     title: "Peppa Pig",
     composer: "?",
     group: "Loisirs",
-    category: "Loisir",
     pdf: "scores/Peppa-Pig.pdf",
     mp3: null
   },
@@ -201,7 +178,6 @@ const SCORES = [
     title: "Bob l'eponge",
     composer: "?",
     group: "Loisirs",
-    category: "Loisir",
     pdf: "scores/Bob-l_eponge.pdf",
     mp3: null
   },
@@ -209,7 +185,6 @@ const SCORES = [
     title: "Le Roi Lion - L'amour brille sous les étoiles",
     composer: "?",
     group: "Loisirs",
-    category: "Loisir",
     pdf: "scores/Le-Roi-Lion.pdf",
     mp3: null
   },
@@ -217,7 +192,6 @@ const SCORES = [
     title: "I See The Light - Raiponce",
     composer: "?",
     group: "Loisirs",
-    category: "Loisir",
     pdf: "scores/I-See-The-Light-Raiponce.pdf",
     mp3: null
   },
@@ -225,7 +199,6 @@ const SCORES = [
     title: "Harry Potter",
     composer: "?",
     group: "Loisirs",
-    category: "Loisir",
     pdf: "scores/Harry-Potter.pdf",
     mp3: null
   },
@@ -233,7 +206,6 @@ const SCORES = [
     title: "Dancing Queen",
     composer: "ABBA",
     group: "Loisirs",
-    category: "Loisir",
     pdf: "scores/Dancing-Queen.pdf",
     mp3: null
   },
@@ -241,7 +213,6 @@ const SCORES = [
     title: "Daisy Bell",
     composer: "TADC",
     group: "Loisirs",
-    category: "Loisir",
     pdf: "scores/Daisy-TADC.pdf",
     mp3: null
   },
@@ -249,7 +220,6 @@ const SCORES = [
     title: "Love Like You",
     composer: "Steven Universe - Rebecca Sugar",
     group: "Loisirs",
-    category: "Loisir",
     pdf: "scores/Love-Like-You_Steven-Universe.pdf",
     mp3: null
   },
@@ -257,7 +227,6 @@ const SCORES = [
     title: "Star Wars 2.0",
     composer: "John Williams",
     group: "Orchestre",
-    category: "Loisir",
     pdf: "scores/Star-Wars2.0Cor_en_Fa.pdf",
     mp3: "audio/Star-Wars-2.0.mp3"
   },
@@ -265,7 +234,6 @@ const SCORES = [
     title: "Money Money Money",
     composer: "ABBA",
     group: "Orchestre",
-    category: "Orchestre",
     pdf: "scores/ABBA-Cor_en_Fa.pdf",
     mp3: null
   },
@@ -273,7 +241,6 @@ const SCORES = [
   title: "Danzon no. 2",
   composer: "Arturo Márquez",
   group: "Orchestre",
-  category: "Extraits d'orchestre",
   parts: [
     { label: "Cor 1", pdf: "scores/Danzon_n_2-Cor_en_Fa.pdf" },
     { label: "Cor 2", pdf: "scores/Danzon_n_2-Cor_en_Fa_2.pdf" }

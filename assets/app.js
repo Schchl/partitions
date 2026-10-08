@@ -115,7 +115,6 @@
       const card = node.querySelector(".card");
 
       node.querySelector('[data-field="group"]').textContent = score.group || "";
-      node.querySelector('[data-field="category"]').textContent = score.category;
       node.querySelector('[data-field="key"]').textContent = score.key || "";
       node.querySelector('[data-field="title"]').textContent = score.title;
       node.querySelector('[data-field="composer"]').textContent = score.composer;
