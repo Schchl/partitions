@@ -235,7 +235,7 @@ const SCORES = [
     composer: "ABBA",
     group: "Orchestre",
     pdf: "scores/ABBA-Cor_en_Fa.pdf",
-    mp3: null
+    mp3: "audio/ABBA-Money.mp3"
   },
   {
   title: "Danzon no. 2",
@@ -246,7 +246,14 @@ const SCORES = [
     { label: "Cor 2", pdf: "scores/Danzon_n_2-Cor_en_Fa_2.pdf" }
   ],
   mp3: "audio/Danzon_n_2-MIDI.mp3"
-},
+  },
+  {
+  title: "Lalaland",
+  composer: "Justin Hurwitz",
+  group: "Orchestre",
+  pdf: "scores/Lalaland-Horn_in_F.pdf",
+  mp3: null
+  },
 ];
 
 window.SCORES = SCORES;
