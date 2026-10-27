@@ -256,7 +256,7 @@ const SCORES = [
   },
   {
   title: "Carol of the Bells",
-  composer: "Justin Hurwitz",
+  composer: "?",
   group: "Orchestre",
   pdf: "scores/Carol-of-the-Bells-Cor_en_Fa.pdf",
   mp3: "audio/Carol-of-the-Bells-Audio.mp3"
