@@ -252,7 +252,14 @@ const SCORES = [
   composer: "Justin Hurwitz",
   group: "Orchestre",
   pdf: "scores/Lalaland-Horn_in_F.pdf",
-  mp3: null
+  mp3: "audio/Lalaland-V1.mp3"
+  },
+  {
+  title: "Carol of the Bells",
+  composer: "Justin Hurwitz",
+  group: "Orchestre",
+  pdf: "scores/Carol-of-the-Bells-Cor_en_Fa.pdf",
+  mp3: "audio/Carol-of-the-Bells-Audio.mp3"
   },
 ];
 
