@@ -261,6 +261,24 @@ const SCORES = [
   pdf: "scores/Carol-of-the-Bells-Cor_en_Fa.pdf",
   mp3: "audio/Carol-of-the-Bells-Audio.mp3"
   },
+  {
+  title: "Jingle Bells Rock",
+  composer: "?",
+  group: "Orchestre",
+  pdf: "scores/Jingle-bell-Rock-Cor_en_Fa.pdf",
+  mp3: "audio/JJingle_bell_Rock.mp3"
+  },
+  {
+  title: "Waloyo Yamoni",
+  composer: "Christopher Tin",
+  opus: "We Overcome The Wind - from 'The drop that contained the sea'",
+  group: "Orchestre",
+  parts: [
+    { label: "Cor 1", pdf: "scores/waloyo-yamoni-Cor1.pdf" },
+    { label: "Cor 2", pdf: "scores/waloyo-yamoni-Cor2.pdf" }
+  ],
+  mp3: "audio/waloyo-yamoni.mp3"
+  },
 ];
 
 window.SCORES = SCORES;

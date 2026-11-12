@@ -82,7 +82,7 @@ const VIDEOS = [
     date: "31/03/2026",
     anecdote: "",
     drive: "https://drive.google.com/file/d/1kpB-w97bmWwekNMvd2PWzwnXVa2ww_jc/view?usp=sharing"
-  }
+  } 
 ];
 
 window.VIDEOS = VIDEOS;
